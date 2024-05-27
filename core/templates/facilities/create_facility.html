@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+{% block content %}
+
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap">
+      <div class="w-full mb-6 py-6 flex justify-between items-center border-b border-gray-200">
+        
+        <div>
+            <a class="text--4xl text-gray-800 hover:text-blue-500" href="{% url "core:facility-list" %}">
+                Back to facilities
+            </a>
+        </div>
+      </div>
+
+
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+            
+            <div class="flex flex-wrap -m-4">
+                <form method="post">
+                    {% csrf_token %}
+        
+                    {{ form|crispy }}
+
+                    <button class="flex mx-auto mt-3 text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded text-sm">
+                        Submit
+                    </button>
+                </form>
+            </div>
+
+          </div>
+        </div>
+            
+    </div>
+  </section>
+
+{% endblock %}
